@@ -37,17 +37,27 @@
     </div>
   </div>
 
-  <div class="container">
 
     <h1>Prime Number Form will go here</h1>
     <p>Results will go here</p>
-    <div class="row-fluid">
+
+    <div class="container">
+      <div class="row">
+        <div id="grid" class="span12">
+            <div ng-repeat="primeCandidate in primeCandidates" class="span1 align-right">
+                {{primeCandidate.value}}
+            </div>
+         </div>
+       </div>
+    </div>
+
+    <!--
+    <div class="row">
         <div class="span9">
             <span class="primeCandidateDisplay" ng-repeat="primeCandidate in primeCandidates">{{primeCandidate.value}}</span>
         </div>
     </div>
+  -->
 
-  </div>
-  <!-- /container -->
 </body>
 </html>
