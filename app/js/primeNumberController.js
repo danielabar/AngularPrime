@@ -3,6 +3,5 @@
 
 PrimeNumberApp.controller('PrimeNumberCtrl',
     function ($scope, PrimeNumberService) {
-
-        $scope.primeCandidates = PrimeNumberService.init(100);
+        $scope.primeCandidates = PrimeNumberService.findPrimes(100);
     });

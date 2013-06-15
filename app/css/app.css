@@ -2,3 +2,8 @@
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.crossedOutDisplay {
+	text-decoration: line-through;
+	color: #9898AC;
+}
