@@ -43,11 +43,8 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
         var potential = init(upTo)   
         var startingIndex = findIndexOfFirstNotCrossedOut(potential, 0);    
         var howManyCrossedOut = -1;     
-        while(true) {
+        while(howManyCrossedOut !== 0) {
             howManyCrossedOut = crossOutMultiples(potential, startingIndex+1, potential[startingIndex].value);                 
-            if (howManyCrossedOut === 0) {
-                break;
-            }
             startingIndex = findIndexOfFirstNotCrossedOut(potential, startingIndex+1);                                  
         }   
         return potential;                  
