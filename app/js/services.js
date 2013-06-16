@@ -1,7 +1,7 @@
 'use strict';
 
 
-PrimeNumberApp.factory('PrimeNumberService', function () {
+PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
 
     function PrimeCandidate(value, crossedOut) {
         this.value = value;
@@ -33,38 +33,29 @@ PrimeNumberApp.factory('PrimeNumberService', function () {
             if (candidates[i].crossedOut === false && candidates[i].value % multipleValue === 0) {                
                 candidates[i].crossedOut = true;
                 howManyCrossedOut = howManyCrossedOut + 1;
+                $rootScope.$broadcast('foundNonPrime', candidates[i]);
             }
         }
         return howManyCrossedOut;
     }
     
-    var extractPrimes = function(candidates) {
-        var primes = [];
-        for (var j=0; j<candidates.length; j++) {
-            if (candidates[j].crossedOut === false) {
-                primes.push(candidates[j].value);              
-            }
-        }
-        return primes;
-    }   
-    
     PrimeNumberService.findPrimes = function (upTo) {
         var potential = init(upTo)   
-        console.log('potential = ' + potential);
         var startingIndex = findIndexOfFirstNotCrossedOut(potential, 0);    
-        console.log('startingIndex = ' + startingIndex);
         var howManyCrossedOut = -1;     
         while(true) {
             howManyCrossedOut = crossOutMultiples(potential, startingIndex+1, potential[startingIndex].value);                 
-            console.log('howManyCrossedOut = ' + howManyCrossedOut);
             if (howManyCrossedOut === 0) {
                 break;
             }
             startingIndex = findIndexOfFirstNotCrossedOut(potential, startingIndex+1);                                  
-            console.log('startingIndex = ' + startingIndex);
         }   
         return potential;                  
-    }
+    };
+
+    PrimeNumberService.init = function(upTo) {
+        return init(upTo);
+    };
 
     return PrimeNumberService;
 
