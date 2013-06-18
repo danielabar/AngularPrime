@@ -8,11 +8,13 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         $scope.primeCandidates = PrimeNumberService.init(100);
 
         $timeout(function () {
-            $scope.primeCandidates = PrimeNumberService.findPrimes(100)
+           PrimeNumberService.findPrimes(100)
         }, 1000);
 
-        $scope.$on('foundNonPrime', function (event, primeCandidate) {
-            console.log('foundNonPrime event was raised');
+        // Events are only received if previous call to findPrimes occurs in a $timeout
+        $scope.$on('foundNonPrime', function (event, primeCandidate, index) {
+            console.log('foundNonPrime event was raised for candidate: ' + primeCandidate + ' at index: ' + index);
+            $scope.primeCandidates[index].crossedOut = true;
         });
 
     });

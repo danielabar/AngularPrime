@@ -33,7 +33,7 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
             if (candidates[i].crossedOut === false && candidates[i].value % multipleValue === 0) {                
                 candidates[i].crossedOut = true;
                 howManyCrossedOut = howManyCrossedOut + 1;
-                $rootScope.$broadcast('foundNonPrime', candidates[i]);
+               $rootScope.$broadcast('foundNonPrime', candidates[i], i);
             }
         }
         return howManyCrossedOut;
