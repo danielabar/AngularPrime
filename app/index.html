@@ -6,9 +6,10 @@
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" href="css/bootstrap.css">
 <style>
-  body {
-    padding-top: 60px; /* 60px to make the container go all the way to the bottom of the topbar */
-  }
+body {
+  padding-top: 60px;
+  /* 60px to make the container go all the way to the bottom of the topbar */
+}
 </style>
 <link rel="stylesheet" href="css/bootstrap-responsive.css">
 <script src="lib/angular/angular-1.1.5.js"></script>
@@ -38,19 +39,42 @@
     </div>
   </div>
 
+  <div class="container">
 
-    <h1>Prime Number Form will go here</h1>
-    <p>Results will go here</p>
+    <form class="form-horizontal">
+    <fieldset>
 
-    <div class="container">
-      <div class="row">
-        <div id="grid" class="span12">
-            <div ng-repeat="primeCandidate in primeCandidates" class="span1 align-right primeCandidateDisplay">
-                  <div ng-class="{crossedOutDisplay: primeCandidate.crossedOut}">{{primeCandidate.value}}</div>
-            </div>
-         </div>
-       </div>
+      <legend>Prime Number Finder</legend>
+
+      <!-- Text input-->
+      <div class="control-group">
+        <label class="control-label" for="upTo">Up to</label>
+        <div class="controls">
+          <input id="upTo" ng-model="upTo" name="upTo" type="text" placeholder="Enter number to find primes up to" class="input-xlarge" required="">
+
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="control-group">
+        <label class="control-label" for="findPrimes"></label>
+        <div class="controls">
+          <button id="findPrimes" ng-click="findPrimesAction()" name="findPrimes" class="btn btn-primary">Find Primes</button>
+        </div>
+      </div>
+
+    </fieldset>
+  </form>
+
+    <div class="row">
+      <div id="grid" class="span12">
+        <div ng-repeat="primeCandidate in primeCandidates"
+          class="span1 align-right primeCandidateDisplay">
+          <div ng-class="{crossedOutDisplay: primeCandidate.crossedOut}">{{primeCandidate.value}}</div>
+        </div>
+      </div>
     </div>
+  </div>
 
 </body>
 </html>
