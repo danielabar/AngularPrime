@@ -16,7 +16,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         $scope.$on('foundNonPrime', function (event, primeCandidate, index) {
             $timeout(function () {
             	$scope.primeCandidates[index].crossedOut = true;
-        	}, 2000);
+        	}, 500);
         });
 
     });

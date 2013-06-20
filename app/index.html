@@ -50,8 +50,7 @@ body {
       <div class="control-group">
         <label class="control-label" for="upTo">Up to</label>
         <div class="controls">
-          <input id="upTo" ng-model="upTo" name="upTo" type="text" placeholder="Enter number to find primes up to" class="input-xlarge" required="">
-
+          <input id="upTo" autofocus ng-model="upTo" type="number" min="2" max="4000" step="1" placeholder="Enter number to find primes up to" class="input-xlarge" required>
         </div>
       </div>
 
