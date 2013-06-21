@@ -60,6 +60,7 @@ body {
         <div class="controls">
           <button id="findPrimes" ng-click="findPrimesAction()" class="btn btn-primary">Find Primes</button>
           <span ng-show="currentMultiple" class="text-info status-display">Eliminating multiples of {{currentMultiple}}</span>
+          <span ng-show="completionMessage" class="text-info status-display">{{completionMessage}}</span>
         </div>
       </div>
 

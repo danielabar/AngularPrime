@@ -22,10 +22,10 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
         for (var j=startLookingFrom; j<candidates.length; j++) {
             if (candidates[j].crossedOut === false) {
                 return j;
-            }
-        }
+            };
+        };
         return -1;
-    }
+    };
     
     var crossOutMultiples = function(candidates, startingIndex, multipleValue) {
         $rootScope.$broadcast('processingMultiple', multipleValue);
@@ -38,7 +38,17 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
             }
         }
         return howManyCrossedOut;
-    }
+    };
+
+   var getPrimeCount = function(candidates) {
+        var primeCount = 0;
+        for (var i=0; i<candidates.length; i++) {
+            if(candidates[i].crossedOut === false) {
+                primeCount = primeCount + 1;
+            }
+        };
+        return primeCount;
+    };
     
     PrimeNumberService.findPrimes = function (upTo) {
         var potential = init(upTo)   
@@ -48,6 +58,7 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
             howManyCrossedOut = crossOutMultiples(potential, startingIndex+1, potential[startingIndex].value);                 
             startingIndex = findIndexOfFirstNotCrossedOut(potential, startingIndex+1);                                  
         }   
+        $rootScope.$broadcast('findPrimesComplete', getPrimeCount(potential));
         return potential;                  
     };
 
