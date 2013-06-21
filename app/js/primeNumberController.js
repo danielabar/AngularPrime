@@ -5,17 +5,17 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
     function ($scope, $timeout, PrimeNumberService) {
 
         $scope.findPrimesAction = function() {
+            $scope.currentMultiple = null;
         	$scope.primeCandidates = PrimeNumberService.init($scope.upTo);
         	$timeout(function () {
            		PrimeNumberService.findPrimes($scope.upTo)
-        	}, 500);
+        	}, 100);
         };
 
-        // Maybe don't need a timeout here?
         $scope.$on('processingMultiple', function (event, multipleValue) {
             $timeout(function () {
                 $scope.currentMultiple = multipleValue;
-            }, 500);
+            }, 10);
         });
 
         // Events are only received if previous call to findPrimes occurs in a $timeout
