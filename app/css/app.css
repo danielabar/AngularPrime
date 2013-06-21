@@ -29,3 +29,26 @@
 .status-display {
     margin-left: 25px;
 }
+
+/* preparation CSS (from) */
+.some-animation-enter {
+  transition:0.5s linear all;
+  position:relative;
+  opacity:0; 
+  left:20px;
+}
+/* animation CSS (to) */
+.some-animation-enter-active {
+  opacity:1; 
+  left:0;
+}
+
+/* preparation CSS */
+.some-animation-keyframe {
+  animation:0.5s my_animation_keyframe;
+}
+/* animation CSS (from & to) */
+@keyframes my_animation_keyframe {
+  from { background:blue; }
+  to { background:red; }
+}

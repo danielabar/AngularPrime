@@ -68,8 +68,7 @@ body {
 
     <div class="row">
       <div id="grid" class="span12">
-        <div ng-repeat="primeCandidate in primeCandidates"
-          class="span1 align-right primeCandidateDisplay">
+        <div ng-repeat="primeCandidate in primeCandidates" ng-animate="'some-animation'" class="span1 align-right primeCandidateDisplay">
           <div ng-class="{crossedOutDisplay: primeCandidate.crossedOut}">{{primeCandidate.value}}</div>
         </div>
       </div>
