@@ -28,6 +28,7 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
     }
     
     var crossOutMultiples = function(candidates, startingIndex, multipleValue) {
+        $rootScope.$broadcast('processingMultiple', multipleValue);
         var howManyCrossedOut = 0;
         for (var i=startingIndex; i<candidates.length; i++) {           
             if (candidates[i].crossedOut === false && candidates[i].value % multipleValue === 0) {                

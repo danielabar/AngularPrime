@@ -59,6 +59,7 @@ body {
         <label class="control-label" for="findPrimes"></label>
         <div class="controls">
           <button id="findPrimes" ng-click="findPrimesAction()" class="btn btn-primary">Find Primes</button>
+          <span ng-show="currentMultiple" class="text-info status-display">Eliminating multiples of {{currentMultiple}}</span>
         </div>
       </div>
 
@@ -73,7 +74,8 @@ body {
         </div>
       </div>
     </div>
-  </div>
+  
+  </div><!-- container -->
 
 </body>
 </html>
