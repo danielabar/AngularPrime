@@ -1,24 +1,6 @@
-@-moz-keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-@-webkit-keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
-@keyframes fadeIn {
-    from {opacity:0;}
-    to {opacity:1;}
-}
-
 .primeCandidateDisplay {
 	margin-top: 10px;
 	margin-bottom: 10px;
-	/*-webkit-animation: fadeIn 500ms;
-    -moz-animation: fadeIn 500ms;    
-	animation: fadeIn 500ms; */
 }
 
 .crossedOutDisplay {
@@ -31,14 +13,15 @@
 }
 
 /* preparation CSS (from) */
-.some-animation-enter {
+.slide-in-enter {
   transition:0.5s linear all;
   position:relative;
   opacity:0; 
   left:20px;
 }
+
 /* animation CSS (to) */
-.some-animation-enter-active {
+.slide-in-enter-active {
   opacity:1; 
   left:0;
 }
