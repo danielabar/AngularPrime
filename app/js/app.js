@@ -9,6 +9,10 @@ PrimeNumberApp.config(function ($routeProvider) {
         templateUrl: 'views/primeNumbers.html',
         controller: 'PrimeNumberCtrl'
       })
+      .when('/about', {
+        templateUrl: 'views/about.html',
+        controller: null
+      })
       .otherwise({
         redirectTo: '/'
       });
