@@ -8,8 +8,6 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
         this.crossedOut = crossedOut;
     };
 
-    var PrimeNumberService = {}
-
     var init = function (upTo) {
         var candidates = [];
         for (var i = 2; i <= upTo; i++) {
@@ -28,7 +26,6 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
     };
     
     var crossOutMultiples = function(candidates, startingIndex, multipleValue) {
-        $rootScope.$broadcast('processingMultiple', multipleValue);
         var howManyCrossedOut = 0;
         for (var i=startingIndex; i<candidates.length; i++) {           
             if (candidates[i].crossedOut === false && candidates[i].value % multipleValue === 0) {                
@@ -49,6 +46,8 @@ PrimeNumberApp.factory('PrimeNumberService', function ($rootScope) {
         };
         return primeCount;
     };
+
+    var PrimeNumberService = {}
     
     PrimeNumberService.findPrimes = function (upTo) {
         var potential = init(upTo)   

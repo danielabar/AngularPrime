@@ -13,12 +13,6 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         	}, 1000);
         };
 
-        $scope.$on('processingMultiple', function (event, multipleValue) {
-            $timeout(function () {
-                // addAlert('Eliminating multiples of ' + multipleValue);
-            }, 10);
-        });
-
         // Events are only received if previous call to findPrimes occurs in a $timeout
         $scope.$on('foundNonPrime', function (event, primeCandidate, index) {
             $timeout(function () {
