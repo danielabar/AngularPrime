@@ -28,7 +28,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         });
 
         var addAlert = function(infoMessage) {
-            $scope.alerts.push({type: 'success', msg: infoMessage});
+            $scope.alerts.push({type: 'info', msg: infoMessage});
         };
 
         $scope.closeAlert = function(index) {

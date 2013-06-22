@@ -1,3 +1,26 @@
+/* TODO: Bootstrap customization should go in separate css file */
+.navbar-inverse .navbar-inner {
+  background-color: #FF6600;
+  background-image: -moz-linear-gradient(top, #F6600, #FF8533);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FF6600), to(#FF8533));
+  background-image: -webkit-linear-gradient(top, #FF6600, #FF8533);
+  background-image: -o-linear-gradient(top, #FF6600, #FF8533);
+  background-image: linear-gradient(to bottom, #FF6600, #FF8533);
+  background-repeat: repeat-x;
+  border-color: #252525;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+}
+
+.navbar-inverse .brand {
+  color: #ffffff;
+}
+
+.navbar-inverse .brand,
+.navbar-inverse .nav > li > a {
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
 .primeCandidateDisplay {
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -10,28 +33,4 @@
 
 .status-display {
     margin-left: 25px;
-}
-
-/* preparation CSS (from) */
-.slide-in-enter {
-  transition:0.5s linear all;
-  position:relative;
-  opacity:0; 
-  left:20px;
-}
-
-/* animation CSS (to) */
-.slide-in-enter-active {
-  opacity:1; 
-  left:0;
-}
-
-/* preparation CSS */
-.some-animation-keyframe {
-  animation:0.5s my_animation_keyframe;
-}
-/* animation CSS (from & to) */
-@keyframes my_animation_keyframe {
-  from { background:blue; }
-  to { background:red; }
 }
