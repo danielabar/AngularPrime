@@ -1,5 +1,5 @@
 'use strict';
 
 
-var PrimeNumberApp = angular.module("PrimeNumberApp", []);
+var PrimeNumberApp = angular.module("PrimeNumberApp", ['ui.bootstrap']);
 

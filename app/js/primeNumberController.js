@@ -4,9 +4,9 @@
 PrimeNumberApp.controller('PrimeNumberCtrl',
     function ($scope, $timeout, PrimeNumberService) {
 
+        $scope.alerts = [];
+
         $scope.findPrimesAction = function() {
-            $scope.currentMultiple = null;
-            $scope.completionMessage = null;
         	$scope.primeCandidates = PrimeNumberService.init($scope.upTo);
         	$timeout(function () {
            		PrimeNumberService.findPrimes($scope.upTo)
@@ -15,7 +15,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
 
         $scope.$on('processingMultiple', function (event, multipleValue) {
             $timeout(function () {
-                $scope.currentMultiple = multipleValue;
+                // addAlert('Eliminating multiples of ' + multipleValue);
             }, 10);
         });
 
@@ -28,9 +28,16 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
 
         $scope.$on('findPrimesComplete', function (event, primeCount) {
             $timeout(function () {
-                $scope.currentMultiple = null;
-            	$scope.completionMessage = 'Found ' + primeCount + ' primes up to ' + $scope.upTo;
+                addAlert('Found ' + primeCount + ' primes up to ' + $scope.upTo);
         	}, 100);
         });
+
+        var addAlert = function(infoMessage) {
+            $scope.alerts.push({type: 'success', msg: infoMessage});
+        };
+
+        $scope.closeAlert = function(index) {
+            $scope.alerts.splice(index, 1);
+        };
 
     });
