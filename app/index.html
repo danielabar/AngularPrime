@@ -12,6 +12,7 @@ body {
 }
 </style>
 <link rel="stylesheet" href="css/bootstrap-responsive.css">
+<link rel="stylesheet" href="css/animate.css">
 <script src="lib/angular/angular-1.1.5.js"></script>
 <script src="js/app.js"></script>
 <script src="js/services.js"></script>
@@ -59,17 +60,23 @@ body {
         <label class="control-label" for="findPrimes"></label>
         <div class="controls">
           <button id="findPrimes" ng-click="findPrimesAction()" class="btn btn-primary">Find Primes</button>
-          <span ng-show="currentMultiple" class="text-info status-display">Eliminating multiples of {{currentMultiple}}</span>
-          <span ng-show="completionMessage" class="text-info status-display">{{completionMessage}}</span>
         </div>
       </div>
 
     </fieldset>
   </form>
 
+  <div class="row">
+    <div class="span6">
+        <div ng-show="completionMessage" ng-animate="{show:'animated fadeInRightBig'}" class="text-info status-display">
+          {{completionMessage}}
+        </div>
+    </div>
+  </div>
+
     <div class="row">
       <div id="grid" class="span12">
-        <div ng-repeat="primeCandidate in primeCandidates" ng-animate="'slide-in'" class="span1 align-right primeCandidateDisplay">
+        <div ng-repeat="primeCandidate in primeCandidates" ng-animate="{enter:'animated fadeInDown'}" class="span1 align-right primeCandidateDisplay">
           <div ng-class="{crossedOutDisplay: primeCandidate.crossedOut}">{{primeCandidate.value}}</div>
         </div>
       </div>

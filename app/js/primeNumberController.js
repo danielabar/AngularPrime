@@ -10,7 +10,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         	$scope.primeCandidates = PrimeNumberService.init($scope.upTo);
         	$timeout(function () {
            		PrimeNumberService.findPrimes($scope.upTo)
-        	}, 100);
+        	}, 1000);
         };
 
         $scope.$on('processingMultiple', function (event, multipleValue) {
