@@ -32,10 +32,11 @@
       </fieldset>
     </form>
 
+    <!-- Results -->
     <div class="row">
       <div id="grid" class="span12">
         <div ng-repeat="primeCandidate in primeCandidates"
-          ng-animate="{enter:'animated fadeInDown'}"
+          ng-animate="{enter:'animated fadeInRight', leave:'animated fadeOutRight'}"
           class="span1 align-right primeCandidateDisplay">
           <div ng-class="{crossedOutDisplay: primeCandidate.crossedOut}">{{primeCandidate.value}}</div>
         </div>
