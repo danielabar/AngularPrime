@@ -7,6 +7,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         $scope.alerts = [];
 
         $scope.findPrimesAction = function() {
+            $scope.alerts = [];
         	$scope.primeCandidates = PrimeNumberService.init($scope.upTo);
         	$timeout(function () {
            		PrimeNumberService.findPrimes($scope.upTo)
