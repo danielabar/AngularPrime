@@ -4,15 +4,19 @@
 describe('Prime Number Service', function() {
 
 	beforeEach(module('PrimeNumberApp'));
+	var service;
+	beforeEach(inject(function(PrimeNumberService) {
+    	service =PrimeNumberService;
+	}));
 
-	it('Service is defined', inject(function(PrimeNumberService) {
-		expect(PrimeNumberService).toBeDefined();
-  	}));
+	it('Service is defined', function() {
+		expect(service).toBeDefined();
+  	});
 
-  	it('init creates array of prime number candidates', inject(function(PrimeNumberService) {
+  	it('init creates array of prime number candidates', function() {
   		var upTo = 10;
-  		var actual = PrimeNumberService.init(upTo);
+  		var actual = service.init(upTo);
 		expect(actual.length).toEqual(upTo-1);
-  	}));
+  	});
 
 });
