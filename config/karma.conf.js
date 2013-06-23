@@ -13,9 +13,4 @@ autoWatch = true;
 
 browsers = ['Chrome'];
 
-reporters = ['progress', 'junit'];
-
-junitReporter = {
-  outputFile: 'test_out/unit.xml',
-  suite: 'unit'
-};
+reporters = ['progress'];

@@ -9,4 +9,10 @@ describe('Prime Number Service', function() {
 		expect(PrimeNumberService).toBeDefined();
   	}));
 
+  	it('init creates array of prime number candidates', inject(function(PrimeNumberService) {
+  		var upTo = 10;
+  		var actual = PrimeNumberService.init(upTo);
+		expect(actual.length).toEqual(upTo-1);
+  	}));
+
 });
