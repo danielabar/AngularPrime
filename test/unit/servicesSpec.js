@@ -4,9 +4,16 @@
 describe('Prime Number Service: ', function() {
 
 	beforeEach(module('PrimeNumberApp'));
+	
 	var service;
 	beforeEach(inject(function(PrimeNumberService) {
     	service = PrimeNumberService;
+	}));
+	
+	var rootScope;
+	beforeEach(inject(function($injector) {
+    	rootScope = $injector.get('$rootScope');
+    	spyOn(rootScope, '$broadcast');
 	}));
 
 	it('Service is defined', function() {
@@ -65,6 +72,10 @@ describe('Prime Number Service: ', function() {
   			expect(actual[3].value).toEqual(5);
   			expect(actual[5].value).toEqual(7);
   		});
+
+    	it("Find Primes broadcasts number of primes found", function() {
+        	expect(rootScope.$broadcast).toHaveBeenCalledWith('findPrimesComplete', 4);
+    	});
 
   	});
 
