@@ -35,12 +35,13 @@ describe('Prime Number Controller', function() {
 
 	beforeEach(module('PrimeNumberApp'));
 
-	beforeEach(inject(function($controller, $rootScope) {
+	beforeEach(inject(function($controller, $rootScope, $timeout) {
     	scope = $rootScope.$new();
     	scope.upTo = 10;
     	ctrl = $controller('PrimeNumberCtrl', {
       		$scope: scope,
-      		PrimeNumberService: mockPrimeNumberService
+      		PrimeNumberService: mockPrimeNumberService,
+      		$timeout: $timeout
     	});
 	}));
 
@@ -56,10 +57,17 @@ describe('Prime Number Controller', function() {
   		expect(scope.primeCandidates).toEqual(null);
   	});
 
-  	it('Find Primes Action calls service', function() {
+  	it('Find Primes Action calls service iniialization', function() {
   		spyOn(mockPrimeNumberService, 'init');
   		scope.findPrimesAction();
   		expect(mockPrimeNumberService.init).toHaveBeenCalledWith(10);
   	});
+
+  	it('Find Primes Action calls service to find primes', inject(function($timeout) {
+  		spyOn(mockPrimeNumberService, 'findPrimes');
+  		scope.findPrimesAction();
+  		$timeout.flush();
+  		expect(mockPrimeNumberService.findPrimes).toHaveBeenCalledWith(10);
+  	}));
 
 });
