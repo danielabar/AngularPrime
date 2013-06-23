@@ -1,7 +1,7 @@
 'use strict';
 
 
-describe('Prime Number Service', function() {
+describe('Prime Number Service: ', function() {
 
 	beforeEach(module('PrimeNumberApp'));
 	var service;
@@ -13,27 +13,33 @@ describe('Prime Number Service', function() {
 		expect(service).toBeDefined();
   	});
 
-  	it('Init creates array of prime number candidates, size one less than specified', function() {
-  		var upTo = 10;
-  		var actual = service.init(upTo);
-		expect(actual.length).toEqual(upTo-1);
+  	describe('Initialization: ', function() {
+
+  		var upTo, actual;
+  		beforeEach(function() {
+    		upTo = 10;
+	  		actual = service.init(upTo);
+		});
+  		
+  		it('Prime Candidates are created, size one less than specified', function() {
+			expect(actual.length).toEqual(upTo-1);
+  		});
+
+	  	it('Prime Candidates start at 2 and end at specified value', function() {
+	  		var actualStartValue = actual[0].value;
+	  		var actualEndValue = actual[actual.length-1].value;
+			expect(actualStartValue).toEqual(2);
+			expect(actualEndValue).toEqual(upTo);
+	  	});
+
+	  	it('Prime Candidates are NOT crossed out', function() {
+	  		for (var i = 0; i < actual.length; i++) {
+	  			expect(actual[i].crossedOut).toBe(false);
+	  		}
+	  	});
+
   	});
 
-  	it('Init creates array of prime number candidates, starting at 2, ending at specified value', function() {
-  		var upTo = 10;
-  		var actual = service.init(upTo);
-  		var actualStartValue = actual[0].value;
-  		var actualEndValue = actual[actual.length-1].value;
-		expect(actualStartValue).toEqual(2);
-		expect(actualEndValue).toEqual(upTo);
-  	});
-
-  	it('Initially, all prime number candidates are NOT crossed out', function() {
-  		var upTo = 10;
-  		var actual = service.init(upTo);
-  		for (var i = 0; i < actual.length; i++) {
-  			expect(actual[i].crossedOut).toBe(false);
-  		}
-  	});
+  	
 
 });
