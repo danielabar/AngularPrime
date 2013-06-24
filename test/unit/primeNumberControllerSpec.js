@@ -71,11 +71,27 @@ describe('Prime Number Controller', function() {
   	}));
 
   	it('When non prime is found, it gets crossed out', inject(function($rootScope, $timeout) {
+  		var primeIndex = 2;
+  		
   		scope.primeCandidates = mockPrimeNumberService.init();
-  		expect(scope.primeCandidates[2].crossedOut).toBe(false);
-  		$rootScope.$broadcast('foundNonPrime', 2);
+  		expect(scope.primeCandidates[primeIndex].crossedOut).toBe(false);
+  		
+  		$rootScope.$broadcast('foundNonPrime', primeIndex);
   		$timeout.flush();
-  		expect(scope.primeCandidates[2].crossedOut).toBe(true);
+  		
+  		expect(scope.primeCandidates[primeIndex].crossedOut).toBe(true);
+  	}));
+
+  	it('When find prime service is copmlete, an info alert is displayed', inject(function($rootScope, $timeout) {
+  		var primeCount = 4;
+  		expect(scope.alerts.length).toEqual(0);
+  		
+  		$rootScope.$broadcast('findPrimesComplete', primeCount);
+  		$timeout.flush();
+
+  		expect(scope.alerts.length).toEqual(1);
+  		expect(scope.alerts[0].type).toMatch('info');
+  		expect(scope.alerts[0].msg).toMatch('Found 4 primes up to 10');
   	}));
 
 });
