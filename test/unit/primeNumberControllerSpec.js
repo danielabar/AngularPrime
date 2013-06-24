@@ -70,4 +70,12 @@ describe('Prime Number Controller', function() {
   		expect(mockPrimeNumberService.findPrimes).toHaveBeenCalledWith(10);
   	}));
 
+  	it('When non prime is found, it gets crossed out', inject(function($rootScope, $timeout) {
+  		scope.primeCandidates = mockPrimeNumberService.init();
+  		expect(scope.primeCandidates[2].crossedOut).toBe(false);
+  		$rootScope.$broadcast('foundNonPrime', 2);
+  		$timeout.flush();
+  		expect(scope.primeCandidates[2].crossedOut).toBe(true);
+  	}));
+
 });

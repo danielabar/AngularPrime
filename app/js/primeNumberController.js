@@ -15,7 +15,7 @@ PrimeNumberApp.controller('PrimeNumberCtrl',
         };
 
         // Events are only received if previous call to findPrimes occurs in a $timeout
-        $scope.$on('foundNonPrime', function (event, primeCandidate, index) {
+        $scope.$on('foundNonPrime', function (event, index) {
             $timeout(function () {
                 $scope.primeCandidates[index].crossedOut = true;
             }, 500);
