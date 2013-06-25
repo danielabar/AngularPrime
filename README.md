@@ -45,7 +45,7 @@ The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikiped
 
 * Browse to [http://localhost:8000/app/index.html](http://localhost:8000/app/index.html)
 
-### Run Unit Tests
+### <a name="rununit"/>Run Unit Tests
 
 * Start Karma with unit test config (from project root)
 
@@ -56,10 +56,11 @@ The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikiped
     This starts karma with [karma.conf.js](config/karma.conf.js).
     It launches a Chrome browser and runs the tests there, the browser remains open.    
     It will watch for any changes to files in the files array and automatically re-run the unit tests.
+    Status of the tests (pass/fail and accompanying errors) will be displayed in the console used to launch the tests.
 
 ### Debug Unit Tests    
 
-* Follow instructions for Run Unit Tests
+* Follow instructions to [Run Unit Tests](#rununit)
 
 * Insert the following line in any test code or production code that is run as part of a test
 
@@ -77,7 +78,7 @@ The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikiped
 * Use Chrome developer tools to step through the code, you can also hover over variables to inspect their values
 
 
-### Run End To End Tests
+### <a name="rune2e"/>Run End To End Tests
 
 * Start Karma with e2e test config (from project root)
 
@@ -86,3 +87,20 @@ The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikiped
     ```
 
     This starts karma with [karma-e2e.conf.js](config/karma-e2e.conf.js)
+    A Chrome browser will be launched to run the end to end tests, then closed when tests are done.
+    Status of the tests (pass/fail and accompanying errors) will be displayed in the console used to launch the tests.
+
+### Debug End To End Tests
+
+* Insert the following line in any end to end test code
+
+
+    ```
+     pause();
+    ```
+
+* Follow instructions to [Run End To End Tests](#rune2e)
+
+* Chrome browser will be launched to run tests, and when breakpoint is hit, will display the app at that point in time
+
+* Click resume in the browser to continue the test

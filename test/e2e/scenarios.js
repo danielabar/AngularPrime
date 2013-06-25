@@ -11,6 +11,12 @@ describe('Prime Number App', function() {
     		expect(browser().location().url()).toBe('/');
   		});
 
+  		it('index.html is the default view', function() {
+    		browser().navigateTo('../../app/index.html#foo');
+    		pause();
+    		expect(browser().location().url()).toBe('/');
+  		});
+
 	});	
 
 });	
