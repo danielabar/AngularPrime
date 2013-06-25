@@ -47,12 +47,42 @@ The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikiped
 
 ### Run Unit Tests
 
-* Start Karma (from project root)
+* Start Karma with unit test config (from project root)
 
     ```
     scripts\test.bat
     ```
 
+    This starts karma with [karma.conf.js](config/karma.conf.js).
+    It launches a Chrome browser and runs the tests there, the browser remains open.    
+    It will watch for any changes to files in the files array and automatically re-run the unit tests.
+
+### Debug Unit Tests    
+
+* Follow instructions for Run Unit Tests
+
+* Insert the following line in any test code or production code that is run as part of a test
+
+
+    ```
+     debugger;
+    ```
+
+* In the launched Chrome browser, click on the DEBUG button at the top-right corner, this will open a new empty tab
+
+* F12 open Chrome developer tools with Console tab open
+
+* F5 to run the tests, it should stop at the breakpoint
+
+* Use Chrome developer tools to step through the code, you can also hover over variables to inspect their values
+
+
 ### Run End To End Tests
 
-* Coming soon!    
+* Start Karma with e2e test config (from project root)
+
+    ```
+    scripts\e2e-test.bat
+    ```
+
+    This starts karma with [karma-e2e.conf.js](config/karma-e2e.conf.js)
