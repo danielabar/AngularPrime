@@ -94,4 +94,18 @@ describe('Prime Number Controller', function() {
   		expect(scope.alerts[0].msg).toMatch('Found 4 primes up to 10');
   	}));
 
+    it('Close alert removes the alert', function() {
+      scope.alerts=['first message', 'second message', 'third message'];
+      expect(scope.alerts.length).toEqual(3);
+      scope.closeAlert(1);
+      expect(scope.alerts.length).toEqual(2);
+    });
+
+    it('Close alert when there are no alerts has no effect', function() {
+      scope.alerts=[];
+      expect(scope.alerts.length).toEqual(0);
+      scope.closeAlert(1);
+      expect(scope.alerts.length).toEqual(0);
+    });
+
 });
