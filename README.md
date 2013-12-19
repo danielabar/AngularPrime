@@ -3,6 +3,8 @@
 This program calculates and displays prime numbers up to a user specified value.
 The algorithm is implemented using the [Sieve of Eratosthenes](http://en.wikipedia.org/wiki/Sieve_of_Eratosthenes).
 
+View the demo [here](http://angular-prime.herokuapp.com/app/index.html)
+
 ### Stack
 * Backend: [Node.js](http://nodejs.org/) is used as a simple web server with code from [angular-phonecat-tutorial](https://github.com/IgorMinar/angular-phonecat-tutorial/blob/master/scripts/web-server.js)
 * [AngularJS](http://www.angularjs.org/) on the client
